@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aura - Notes Journal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-bright": "#f7fafc",
+                      "primary": "#6a548a",
+                      "surface-container-high": "#e5e9eb",
+                      "secondary-container": "#ffd1b3",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#234b63",
+                      "on-surface-variant": "#4a454e",
+                      "tertiary-fixed": "#c8e6ff",
+                      "on-secondary-fixed": "#2d1604",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed-variant": "#5f402a",
+                      "tertiary-container": "#a5cce9",
+                      "secondary": "#79573f",
+                      "on-primary-fixed-variant": "#513c71",
+                      "on-background": "#181c1e",
+                      "on-primary-container": "#5e497e",
+                      "surface-tint": "#6a548a",
+                      "on-tertiary-container": "#305770",
+                      "surface-dim": "#d7dadc",
+                      "primary-container": "#d6bcfa",
+                      "on-error-container": "#93000a",
+                      "outline": "#7b757f",
+                      "tertiary": "#3c627c",
+                      "tertiary-fixed-dim": "#a5cbe9",
+                      "on-error": "#ffffff",
+                      "surface-container-low": "#f1f4f6",
+                      "surface-container-highest": "#e0e3e5",
+                      "secondary-fixed-dim": "#eabea0",
+                      "inverse-primary": "#d5bbf9",
+                      "on-secondary-container": "#7a5840",
+                      "background": "#f7fafc",
+                      "on-primary-fixed": "#250f43",
+                      "surface-container": "#ebeef0",
+                      "primary-fixed": "#eddcff",
+                      "on-surface": "#181c1e",
+                      "surface": "#f7fafc",
+                      "on-tertiary": "#ffffff",
+                      "inverse-on-surface": "#eef1f3",
+                      "surface-variant": "#e0e3e5",
+                      "error-container": "#ffdad6",
+                      "primary-fixed-dim": "#d5bbf9",
+                      "secondary-fixed": "#ffdcc5",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#001e2e",
+                      "outline-variant": "#ccc4cf",
+                      "inverse-surface": "#2d3133",
+                      "on-primary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "md": "24px",
+                      "base": "8px",
+                      "container-margin-desktop": "80px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "container-margin-mobile": "20px",
+                      "sm": "12px",
+                      "lg": "40px",
+                      "xl": "64px"
+              },
+              "fontFamily": {
+                      "display-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "title-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "display-lg": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "display-md": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-lg": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.1px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "title-lg": [
+                              "22px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        body {
+            /* Fallback subtle background gradient if WebGL fails to load immediately */
+            background: linear-gradient(135deg, #f7fafc 0%, #eef1f3 50%, #e0e3e5 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            border-left: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        
+        .masonry-grid {
+            column-count: 2;
+            column-gap: 20px;
+        }
+        
+        @media (min-width: 768px) {
+            .masonry-grid {
+                column-count: 3;
+                column-gap: 24px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 4;
+                column-gap: 32px;
+            }
+        }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 20px;
+        }
+        @media (min-width: 768px) {
+            .masonry-item {
+                margin-bottom: 24px;
+            }
+        }
+        @media (min-width: 1024px) {
+            .masonry-item {
+                margin-bottom: 32px;
+            }
+        }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface antialiased bg-background pb-32">
+<!-- Top App Bar (From Shared Components JSON) -->
+<header class="fixed top-0 w-full backdrop-blur-xl border-b border-white/20 shadow-sm flex justify-between items-center px-gutter h-16 z-50 bg-surface/40">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-on-primary-container text-[20px]">person</span>
+</div>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2">
+<h1 class="font-display-md text-display-md bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary">Aura</h1>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-white/10 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-container-margin-mobile md:px-container-margin-desktop max-w-[1440px] mx-auto min-h-screen">
+<!-- Header & Search -->
+<div class="mb-lg flex flex-col md:flex-row md:items-center justify-between gap-md">
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">Journal</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Capture your thoughts and tasks.</p>
+</div>
+<div class="flex-1 max-w-md relative glass-card rounded-full shadow-sm">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-transparent border-none rounded-full py-3 pl-12 pr-4 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary/50 placeholder:text-on-surface-variant/60" placeholder="Search notes..." type="text"/>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-sm mb-lg overflow-x-auto pb-2 scrollbar-hide -mx-container-margin-mobile px-container-margin-mobile md:mx-0 md:px-0">
+<button class="px-6 py-2 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg shadow-sm whitespace-nowrap">All Notes</button>
+<button class="px-6 py-2 rounded-full glass-card text-on-surface-variant font-label-lg text-label-lg hover:bg-white/40 transition-colors whitespace-nowrap">To-dos</button>
+<button class="px-6 py-2 rounded-full glass-card text-on-surface-variant font-label-lg text-label-lg hover:bg-white/40 transition-colors whitespace-nowrap">Voice Memos</button>
+<button class="px-6 py-2 rounded-full glass-card text-on-surface-variant font-label-lg text-label-lg hover:bg-white/40 transition-colors whitespace-nowrap">Ideas</button>
+</div>
+<!-- Masonry Grid for Notes -->
+<div class="masonry-grid">
+<!-- Note 1: Text / Idea (Mint) -->
+<div class="masonry-item rounded-xl glass-card p-md shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group cursor-pointer" style="background: linear-gradient(145deg, rgba(235, 255, 245, 0.7) 0%, rgba(255, 255, 255, 0.4) 100%); border-color: rgba(255,255,255,0.6);">
+<div class="flex justify-between items-start mb-sm">
+<span class="px-3 py-1 bg-white/50 rounded-full font-label-sm text-label-sm text-on-surface-variant">Idea</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">more_horiz</span></button>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-2">Morning Routine Reset</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-4">Need to adjust my wake-up time. 1. Drink water first. 2. 10 mins meditation. 3. Avoid phone until after breakfast. Feeling way too groggy lately.</p>
+<div class="mt-4 flex items-center justify-between text-on-surface-variant/70">
+<span class="font-label-sm text-label-sm">Today, 8:42 AM</span>
+</div>
+</div>
+<!-- Note 2: Image Note (Lavender) -->
+<div class="masonry-item rounded-xl glass-card p-md shadow-sm hover:shadow-md transition-shadow cursor-pointer" style="background: linear-gradient(145deg, rgba(214, 188, 250, 0.3) 0%, rgba(255, 255, 255, 0.4) 100%);">
+<div class="flex justify-between items-start mb-3">
+<span class="px-3 py-1 bg-white/50 rounded-full font-label-sm text-label-sm text-on-surface-variant">Inspo</span>
+</div>
+<div class="w-full aspect-[4/3] rounded-lg mb-3 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A softly lit, aesthetic workspace featuring a minimalist white desk, a glowing pastel lavender mechanical keyboard, and a small potted succulent. The lighting is ethereal and bright, typical of a 'light mode' modern design setup. Soft, diffuse natural light creates a calming, productive mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOrXDF0Arw7VdJPblhxeGtAcX1pggdpQUIqrJrz27BV-Ck-fWT9Xk2Rj2TYxWf9JNd9cJxwi7SM2oT8NhVXHolih5wDCdCN4gaR62TVFdV9fOcYmbT9TPh3MGESzGRvI5YzHwmWa3YhPaTdszvfnM_-ByXyhxFTfsmYQkVRv8WQXPTtnNhGx0kvdpKjJemL7sZvPj7HJGPQJzrjfk-UhPjUVKBgaWUr4O-BLsFccdtThEdjJ4o83aqLg"/>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-1">Desk Setup Ideas</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Loving the clean pastel vibe here.</p>
+</div>
+<!-- Note 3: To-Do List (Peach) -->
+<div class="masonry-item rounded-xl glass-card p-md shadow-sm hover:shadow-md transition-shadow cursor-pointer" style="background: linear-gradient(145deg, rgba(255, 209, 179, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%);">
+<div class="flex justify-between items-start mb-sm">
+<span class="px-3 py-1 bg-white/50 rounded-full font-label-sm text-label-sm text-on-surface-variant">Tasks</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-3">Weekend Errands</h3>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded-md border-outline-variant text-primary focus:ring-primary bg-white/50" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface-variant line-through decoration-on-surface-variant/50">Grocery run (Trader Joe's)</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded-md border-outline-variant text-primary focus:ring-primary bg-white/50" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">Pick up dry cleaning</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded-md border-outline-variant text-primary focus:ring-primary bg-white/50" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">Water all the plants</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded-md border-outline-variant text-primary focus:ring-primary bg-white/50" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">Meal prep for Mon/Tue</span>
+</label>
+</div>
+<div class="mt-4 pt-4 border-t border-white/30 flex items-center justify-between text-on-surface-variant/70">
+<span class="font-label-sm text-label-sm">1/4 completed</span>
+</div>
+</div>
+<!-- Note 4: Voice Note (Sky Blue) -->
+<div class="masonry-item rounded-xl glass-card p-md shadow-sm hover:shadow-md transition-shadow cursor-pointer" style="background: linear-gradient(145deg, rgba(200, 230, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%);">
+<div class="flex justify-between items-start mb-sm">
+<span class="px-3 py-1 bg-white/50 rounded-full font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">mic</span> Audio
+                    </span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-2">Project Brainstorm</h3>
+<div class="bg-white/40 rounded-lg p-3 flex items-center gap-3 mt-3">
+<button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-sm shrink-0">
+<span class="material-symbols-outlined filled">play_arrow</span>
+</button>
+<!-- Simulated Waveform -->
+<div class="flex-1 h-6 flex items-center justify-between gap-[2px]">
+<div class="w-1 bg-primary/40 rounded-full h-[30%]"></div>
+<div class="w-1 bg-primary/60 rounded-full h-[60%]"></div>
+<div class="w-1 bg-primary/80 rounded-full h-[100%]"></div>
+<div class="w-1 bg-primary rounded-full h-[80%]"></div>
+<div class="w-1 bg-primary/60 rounded-full h-[40%]"></div>
+<div class="w-1 bg-primary/30 rounded-full h-[20%]"></div>
+<div class="w-1 bg-primary/30 rounded-full h-[20%]"></div>
+<div class="w-1 bg-primary/40 rounded-full h-[50%]"></div>
+<div class="w-1 bg-primary/70 rounded-full h-[90%]"></div>
+<div class="w-1 bg-primary/50 rounded-full h-[40%]"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium shrink-0">2:14</span>
+</div>
+</div>
+<!-- Note 5: Minimal Text -->
+<div class="masonry-item rounded-xl glass-card p-md shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+<p class="font-body-lg text-body-lg text-on-surface italic">"The secret of getting ahead is getting started."</p>
+<div class="mt-4 flex items-center justify-between text-on-surface-variant/70">
+<span class="font-label-sm text-label-sm">- Mark Twain</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (New Note) -->
+<button class="fixed bottom-24 right-4 md:bottom-8 md:right-8 w-14 h-14 rounded-full bg-gradient-to-br from-primary to-inverse-primary text-white shadow-[0_8px_32px_rgba(106,84,138,0.4)] flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-40 border border-white/20">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+<!-- Bottom Navigation Bar (From Shared Components JSON) - Mobile Only -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-surface-container/60 dark:bg-on-surface/20 rounded-t-lg backdrop-blur-2xl shadow-lg border-t border-white/20">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container/80 text-on-primary-container rounded-xl px-4 py-1 active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined mb-1 filled" data-icon="edit_note">edit_note</span>
+<span class="font-label-sm text-label-sm font-bold">Journal</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="payments">payments</span>
+<span class="font-label-sm text-label-sm">Expenses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-sm text-label-sm">Calendar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+</body></html>

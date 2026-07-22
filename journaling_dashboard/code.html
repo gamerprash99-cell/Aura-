@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aura - My Journal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Caveat:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdcc5",
+                    "surface-container-low": "#f1f4f6",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#ffd1b3",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#7a5840",
+                    "primary-fixed": "#eddcff",
+                    "on-secondary-fixed-variant": "#5f402a",
+                    "surface-tint": "#6a548a",
+                    "on-secondary-fixed": "#2d1604",
+                    "inverse-on-surface": "#eef1f3",
+                    "surface-dim": "#d7dadc",
+                    "tertiary-container": "#a5cce9",
+                    "primary-container": "#d6bcfa",
+                    "outline-variant": "#ccc4cf",
+                    "tertiary": "#3c627c",
+                    "on-primary-fixed": "#250f43",
+                    "on-surface": "#181c1e",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "on-secondary": "#ffffff",
+                    "primary": "#6a548a",
+                    "outline": "#7b757f",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-tertiary-fixed-variant": "#234b63",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#c8e6ff",
+                    "secondary-fixed-dim": "#eabea0",
+                    "on-tertiary-fixed": "#001e2e",
+                    "tertiary-fixed-dim": "#a5cbe9",
+                    "surface-container-high": "#e5e9eb",
+                    "on-surface-variant": "#4a454e",
+                    "on-primary-fixed-variant": "#513c71",
+                    "secondary": "#79573f",
+                    "error-container": "#ffdad6",
+                    "on-primary-container": "#5e497e",
+                    "background": "#f7fafc",
+                    "surface-container": "#ebeef0",
+                    "surface-bright": "#f7fafc",
+                    "surface": "#f7fafc",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e0e3e5",
+                    "primary-fixed-dim": "#d5bbf9",
+                    "on-tertiary-container": "#305770",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#d5bbf9",
+                    "on-background": "#181c1e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "md": "24px",
+                    "gutter": "24px",
+                    "container-margin-mobile": "20px",
+                    "container-margin-desktop": "80px",
+                    "xs": "4px",
+                    "lg": "40px",
+                    "xl": "64px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "display-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "title-lg": ["Plus Jakarta Sans"],
+                    "handwriting": ["Caveat", "cursive"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-md": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.6);
+            border-left: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px rgba(106, 84, 138, 0.05);
+        }
+        .mesh-bg {
+            background-color: #f7fafc;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(276,68%,87%,1) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(28,95%,85%,1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, hsla(209,72%,85%,1) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(276,68%,87%,0.7) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+        .handwriting {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body class="mesh-bg text-on-surface min-h-screen pb-32 pt-24 font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full backdrop-blur-xl bg-surface/40 border-b border-white/20 shadow-sm flex justify-between items-center px-gutter h-16 w-full z-50">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border-2 border-white">
+<img class="w-full h-full object-cover" data-alt="A small circular avatar showing a serene user profile photo against a soft pastel background, professional and clean lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZmMr-akAOPAxokll0nazRyTOg5RKFG7qib0ASLJnys4MDEW1P8SuCLAD8YlwfHFTwNncA33oNZVxkpBnEywd29XvDh1ZFQtcIL8yAES9SQi_WzlRuq4kXsQ8osIwZ-AucBzbUv6fHmE77kg992920ztl2KmUz3BFn6gB-F4tl_s1U79z7y1R6spZLQEYSarDKu8kqKTjKuK1rVqyySLZrSSOIgXLx5XjT6edzvsAbzD_1EBFq1h6diQ"/>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-display-md text-display-md bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary">Aura</h1>
+</div>
+<button class="w-10 h-10 rounded-full bg-white/50 flex items-center justify-center text-primary hover:bg-white/10 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</header>
+<main class="max-w-[1440px] mx-auto px-container-margin-mobile md:px-container-margin-desktop grid grid-cols-4 md:grid-cols-12 gap-6 relative">
+<!-- Header & Controls -->
+<div class="col-span-4 md:col-span-12 flex flex-col gap-6 pt-4">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="font-display-md text-display-md text-on-surface mb-2">My Journal</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">A place for your thoughts and memories.</p>
+</div>
+<!-- Toggle -->
+<div class="glass-panel rounded-full p-1 flex items-center self-start md:self-auto">
+<button class="px-6 py-2 rounded-full bg-primary text-on-primary font-label-lg text-label-lg shadow-sm transition-all">Timeline</button>
+<button class="px-6 py-2 rounded-full text-on-surface-variant font-label-lg text-label-lg hover:text-primary transition-all">Calendar</button>
+</div>
+</div>
+<!-- Mood & Weather Row -->
+<div class="flex flex-wrap items-center gap-4">
+<div class="glass-panel rounded-full px-4 py-2 flex items-center gap-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Mood</span>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-full bg-secondary-fixed/50 flex items-center justify-center text-on-secondary-fixed-variant hover:bg-secondary-fixed transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-tertiary-fixed/50 flex items-center justify-center text-on-tertiary-fixed-variant hover:bg-tertiary-fixed transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">cloud</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-primary-fixed/50 flex items-center justify-center text-on-primary-fixed-variant hover:bg-primary-fixed transition-colors ring-2 ring-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sentiment_satisfied</span>
+</button>
+</div>
+</div>
+<div class="glass-panel rounded-full px-4 py-2 flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined">partly_cloudy_day</span>
+<span class="font-label-lg text-label-lg">24°C, Sunny</span>
+</div>
+</div>
+</div>
+<!-- Main Timeline Column -->
+<div class="col-span-4 md:col-span-8 flex flex-col gap-8 relative mt-4">
+<!-- Timeline Line -->
+<div class="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-primary/30 via-tertiary/20 to-transparent hidden md:block"></div>
+<!-- Entry 1 -->
+<div class="relative flex flex-col md:flex-row gap-4 md:gap-8 group">
+<div class="md:w-24 shrink-0 flex items-start md:justify-end pt-2">
+<span class="font-label-lg text-label-lg text-on-surface-variant bg-surface/80 md:bg-transparent px-2 md:px-0 rounded-full md:rounded-none z-10 backdrop-blur-sm md:backdrop-blur-none">10:30 AM</span>
+</div>
+<div class="glass-panel rounded-[32px] p-6 flex-1 flex flex-col gap-4 relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+<!-- Decor -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary-fixed/40 rounded-full blur-2xl"></div>
+<div class="flex justify-between items-start">
+<div class="handwriting text-primary pr-8">
+                            "Woke up to the smell of fresh coffee. The morning light hitting the desk felt magical today."
+                        </div>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<div class="bg-primary-container/50 text-on-primary-container px-3 py-1 rounded-full font-label-sm text-label-sm border border-white/40 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+                            Morning thoughts
+                        </div>
+</div>
+</div>
+</div>
+<!-- Entry 2 with Image -->
+<div class="relative flex flex-col md:flex-row gap-4 md:gap-8 group">
+<div class="md:w-24 shrink-0 flex items-start md:justify-end pt-2">
+<span class="font-label-lg text-label-lg text-on-surface-variant bg-surface/80 md:bg-transparent px-2 md:px-0 rounded-full md:rounded-none z-10 backdrop-blur-sm md:backdrop-blur-none">2:15 PM</span>
+</div>
+<div class="glass-panel rounded-[32px] p-6 flex-1 flex flex-col gap-4 relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+<div class="flex justify-between items-start">
+<div class="handwriting text-primary">
+                            "Lunch at the new cafe. The aesthetic was so inspiring, I had to sketch a little."
+                        </div>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="rounded-2xl overflow-hidden mt-2 h-48 relative shadow-inner">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLv9k9JxeKTCHmB5K_mhihOLV7n0oV-0kWPlVYoPc7AK5PB_XF6z-qwWrG02JjnAeYHP1TRmuCHeg79mEv5t8Km5JBXl36mV0EQoe64PyppHUCzbHRwOt4OYNTDKEaOqfVHwdp5BIKT1zkc01YO5C1USXE7JHElAyfsWZtXly_cH28DDVv5hovnUyspaUNNCCNxU06uWVTDAKXwHPXVze6uN3Bxnqacjz4ZwdTh2xOx-GdySZ_OPsTCIYM2V"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+</div>
+<!-- AI Suggestion Chip -->
+<div class="self-start mt-2 bg-gradient-to-r from-tertiary-fixed to-primary-fixed p-[1px] rounded-full">
+<div class="bg-surface/80 backdrop-blur-md px-4 py-2 rounded-full font-label-sm text-label-sm text-primary flex items-center gap-2 hover:bg-surface/50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[16px]">draw</span>
+                            AI: What did you sketch?
+                        </div>
+</div>
+</div>
+</div>
+<!-- Add Gratitude Section -->
+<div class="relative flex flex-col md:flex-row gap-4 md:gap-8 group mt-4">
+<div class="md:w-24 shrink-0 flex items-start md:justify-end pt-2">
+</div>
+<div class="bg-secondary-fixed/40 backdrop-blur-xl border border-white/60 rounded-[32px] p-8 flex-1 flex flex-col items-center justify-center text-center gap-4 relative overflow-hidden">
+<div class="absolute -bottom-8 -left-8 w-40 h-40 bg-secondary-fixed blur-3xl opacity-50"></div>
+<div class="w-12 h-12 rounded-full bg-white/60 flex items-center justify-center text-secondary mb-2 shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-secondary-fixed">Daily Gratitude</h3>
+<p class="font-body-md text-body-md text-on-secondary-fixed-variant mt-1">What are you thankful for right now?</p>
+</div>
+<button class="mt-2 px-6 py-3 rounded-full bg-white/80 hover:bg-white text-secondary font-label-lg text-label-lg shadow-sm transition-all active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined">add</span>
+                        Add Gratitude
+                    </button>
+</div>
+</div>
+</div>
+<!-- Sidebar (Desktop) -->
+<div class="hidden md:flex col-span-4 flex-col gap-6 pt-4">
+<div class="glass-panel rounded-[32px] p-6">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-4">This Month</h3>
+<div class="grid grid-cols-7 gap-2 text-center mb-2">
+<div class="font-label-sm text-label-sm text-on-surface-variant">S</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">M</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">T</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">W</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">T</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">F</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">S</div>
+</div>
+<div class="grid grid-cols-7 gap-2 text-center font-body-md text-body-md">
+<!-- Dummy calendar days -->
+<div class="p-1 text-outline-variant">28</div>
+<div class="p-1 text-outline-variant">29</div>
+<div class="p-1 text-outline-variant">30</div>
+<div class="p-1 bg-primary-fixed text-on-primary-fixed rounded-full font-bold">1</div>
+<div class="p-1">2</div>
+<div class="p-1">3</div>
+<div class="p-1">4</div>
+<div class="p-1 relative">5 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full"></div></div>
+<div class="p-1">6</div>
+<div class="p-1">7</div>
+<div class="p-1">8</div>
+<div class="p-1">9</div>
+<div class="p-1">10</div>
+<div class="p-1">11</div>
+</div>
+</div>
+<div class="glass-panel rounded-[32px] p-6">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-4">Memories</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="h-24 rounded-2xl bg-surface-container overflow-hidden relative">
+<img class="w-full h-full object-cover opacity-80 mix-blend-multiply" data-alt="A small square thumbnail image of a beautifully arranged desk with pastel stationary, soft morning lighting, high aesthetic appeal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_DXMeWbEmVXemJS51tyCT1uTl4WqLmxXu9mSJ650fit9r3zY5Dy3pWMqGheuRMZQlBxcQsUjMpDZRWdvSE3mq-a3Hpj0zd47yxvKByXXtZGBzHYZ2PfgG-XOqDG4Y55sKl4l2LF78MKrk0CPFiQcpPNZdqhTcqLBlkaltLlvz1dlSm17mOAtMFDbLtEYbkBGSCltcd1dgcYmeU4VQ1u53AnbF_PvkxX3ak97qLL7XrrGmUQUp8aro-Q"/>
+</div>
+<div class="h-24 rounded-2xl bg-tertiary-container/30 overflow-hidden relative flex items-center justify-center">
+<span class="font-label-sm text-label-sm text-tertiary font-bold">+12</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-24 right-6 md:right-12 w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-surface-tint text-on-primary shadow-lg shadow-primary/30 flex items-center justify-center hover:-translate-y-1 hover:shadow-xl transition-all active:scale-95 z-40 border border-white/20">
+<span class="material-symbols-outlined text-[32px]">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full rounded-t-lg backdrop-blur-2xl bg-surface-container/60 border-t border-white/20 shadow-lg fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300">
+<span class="material-symbols-outlined mb-1 text-[24px]">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container/80 text-on-primary-container rounded-xl px-4 py-1 hover:text-primary transition-all active:scale-90 duration-300">
+<span class="material-symbols-outlined mb-1 text-[24px]" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+<span class="font-label-sm text-label-sm font-bold">Journal</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300">
+<span class="material-symbols-outlined mb-1 text-[24px]">payments</span>
+<span class="font-label-sm text-label-sm">Expenses</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300">
+<span class="material-symbols-outlined mb-1 text-[24px]">calendar_today</span>
+<span class="font-label-sm text-label-sm">Calendar</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300">
+<span class="material-symbols-outlined mb-1 text-[24px]">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</nav>
+</body></html>

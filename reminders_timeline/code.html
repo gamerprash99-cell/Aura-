@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aura - Reminders</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#6a548a",
+                    "primary-container": "#d6bcfa",
+                    "on-primary-fixed": "#250f43",
+                    "surface-dim": "#d7dadc",
+                    "on-background": "#181c1e",
+                    "outline-variant": "#ccc4cf",
+                    "on-secondary-container": "#7a5840",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "on-tertiary-fixed-variant": "#234b63",
+                    "surface-variant": "#e0e3e5",
+                    "tertiary-fixed-dim": "#a5cbe9",
+                    "secondary-fixed": "#ffdcc5",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#e5e9eb",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#e0e3e5",
+                    "outline": "#7b757f",
+                    "secondary": "#79573f",
+                    "tertiary": "#3c627c",
+                    "inverse-primary": "#d5bbf9",
+                    "primary": "#6a548a",
+                    "inverse-on-surface": "#eef1f3",
+                    "surface-container": "#ebeef0",
+                    "tertiary-container": "#a5cce9",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#ffd1b3",
+                    "on-secondary-fixed": "#2d1604",
+                    "on-surface": "#181c1e",
+                    "primary-fixed-dim": "#d5bbf9",
+                    "surface": "#f7fafc",
+                    "background": "#f7fafc",
+                    "on-surface-variant": "#4a454e",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#c8e6ff",
+                    "surface-bright": "#f7fafc",
+                    "on-tertiary-fixed": "#001e2e",
+                    "on-secondary-fixed-variant": "#5f402a",
+                    "on-primary-container": "#5e497e",
+                    "secondary-fixed-dim": "#eabea0",
+                    "surface-container-low": "#f1f4f6",
+                    "on-primary-fixed-variant": "#513c71",
+                    "on-tertiary-container": "#305770",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#eddcff",
+                    "error": "#ba1a1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-margin-mobile": "20px",
+                    "xl": "64px",
+                    "sm": "12px",
+                    "md": "24px",
+                    "gutter": "24px",
+                    "container-margin-desktop": "80px",
+                    "xs": "4px",
+                    "base": "8px",
+                    "lg": "40px"
+            },
+            "fontFamily": {
+                    "display-md": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "label-lg": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "title-lg": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "display-md": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Ambient Background Mesh (Level 0) -->
+<div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden bg-surface">
+<div class="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-primary-container/20 blur-[100px]"></div>
+<div class="absolute bottom-[10%] right-[-10%] w-[70vw] h-[70vw] rounded-full bg-tertiary-container/20 blur-[120px]"></div>
+<div class="absolute top-[40%] left-[20%] w-[40vw] h-[40vw] rounded-full bg-secondary-container/10 blur-[90px]"></div>
+</div>
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-gutter h-16 w-full z-50 fixed top-0 backdrop-blur-xl bg-surface/40 dark:bg-on-surface/10 border-b border-white/20 shadow-sm transition-all duration-300" id="topAppBar">
+<!-- Leading Avatar -->
+<div class="flex-shrink-0 w-8 h-8 rounded-full overflow-hidden bg-surface-container ring-2 ring-white/50 cursor-pointer active:scale-95 duration-200">
+<img class="w-full h-full object-cover" data-alt="A macro photography style portrait of a diverse young professional, bright natural lighting, soft focus background, modern minimal aesthetic with subtle pastel tones in the attire." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARbzUXCxPUfouFfs2V2zAakHCiC1N_mTUCMtzd3SXYr54DIb7cnyxME_KS9JQ1OYs4luYnUjo5auYuB7MnESdM57HOwZMoZuV7dKNzggsK0D8HqZB7n5lnSdXDt5ZZ7Ts_Q3zTWee-MUfWSKyql3GnE9LKBMUuZoplxvvDfqqYyarP2DHFYlpTXY0auCuWN1bz3b-S2W9s9KbnNE7MaCbX02i8ETitJo1NqsqL7ZZmggh6hX3agV7kDA"/>
+</div>
+<!-- Headline / Brand -->
+<h1 class="font-display-md text-display-md bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary tracking-tight">Aura</h1>
+<!-- Trailing Icon -->
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-primary dark:text-primary-fixed-dim hover:bg-white/10 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-[calc(64px+40px)] pb-[calc(100px+40px)] px-container-margin-mobile md:px-container-margin-desktop max-w-[1440px] mx-auto min-h-screen relative z-10 flex flex-col">
+<!-- Page Header -->
+<div class="mb-10 px-2">
+<h2 class="font-display-lg text-display-lg text-on-surface mb-2">Reminders</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant opacity-80">Stay on track with your daily intentions.</p>
+</div>
+<!-- Vertical Timeline Layout -->
+<div class="relative flex-1 px-2 md:px-4">
+<!-- Timeline Line (Gradient) -->
+<div class="absolute left-[39px] md:left-[47px] top-6 bottom-10 w-[3px] bg-gradient-to-b from-primary via-tertiary to-transparent rounded-full opacity-20"></div>
+<!-- Timeline List -->
+<div class="flex flex-col gap-8 md:gap-10">
+<!-- Card 1: Medicine -->
+<div class="flex gap-4 md:gap-6 relative group">
+<!-- Timeline Node -->
+<div class="w-16 md:w-20 flex-shrink-0 flex flex-col items-center pt-2">
+<div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-surface/80 backdrop-blur-md shadow-sm border-2 border-white flex items-center justify-center z-10 text-primary group-hover:scale-110 transition-transform duration-300">
+<span class="font-label-lg text-label-lg font-bold">08:00</span>
+</div>
+</div>
+<!-- Glass Card -->
+<div class="flex-1 rounded-xl md:rounded-lg backdrop-blur-xl bg-surface-container-high/40 ring-1 ring-white/40 p-4 md:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] relative overflow-hidden">
+<!-- Decorative glow -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
+<!-- 3D Icon Container -->
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-surface/50 shadow-inner flex items-center justify-center p-2 flex-shrink-0 ring-1 ring-white/50">
+<img class="w-full h-full object-contain drop-shadow-md" data-alt="A highly detailed, cute 3D rendered icon of a pill bottle and scattered capsules. Soft pastel mint and light gray colors. Matte clay material finish, studio lighting with soft shadows, isolated on a transparent-like bright background. Digital ethereal aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6TuMhQuBN7Ab6gs9p5WYgSCE5K5zTJUW5sN7ItL4yZR2I4pXn5tnzMXhqztMSMLF98zJPxQT36CDB8oiZ58UrD2EyK5XH_dR63oGGZ1ZxRPn_tZLTavRX7oBwjwX-Je_McfCBu2Ui83sLlmtemmjiK8o3C7z8oAKqrPu0GRX_4YY3duigEe8LMINkotV0eNwoy5mttc2t0iWvxw8hLKE-NnEWiBYs8KbUDS56nGv0A51G2tV7NUqDMQ"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-lg text-title-lg text-on-surface">Morning Medicine</h3>
+<!-- Status Chip -->
+<span class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm tracking-wide">Pending</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3">Take with a full glass of water.</p>
+<!-- Actions -->
+<div class="flex gap-2">
+<button class="px-4 py-1.5 rounded-full bg-primary text-white font-label-lg text-label-lg hover:bg-on-primary-fixed transition-colors active:scale-95 shadow-sm">Done</button>
+<button class="px-4 py-1.5 rounded-full bg-surface text-on-surface font-label-lg text-label-lg ring-1 ring-outline-variant hover:bg-surface-variant transition-colors active:scale-95">Snooze</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Drink Water -->
+<div class="flex gap-4 md:gap-6 relative group">
+<div class="w-16 md:w-20 flex-shrink-0 flex flex-col items-center pt-2">
+<div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-surface/80 backdrop-blur-md shadow-sm border-2 border-white flex items-center justify-center z-10 text-tertiary group-hover:scale-110 transition-transform duration-300">
+<span class="font-label-lg text-label-lg font-bold">10:30</span>
+</div>
+</div>
+<div class="flex-1 rounded-xl md:rounded-lg backdrop-blur-xl bg-tertiary-container/20 ring-1 ring-white/40 p-4 md:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] relative overflow-hidden">
+<div class="absolute -bottom-10 -left-10 w-40 h-40 bg-tertiary/10 rounded-full blur-2xl"></div>
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-surface/50 shadow-inner flex items-center justify-center p-2 flex-shrink-0 ring-1 ring-white/50">
+<img class="w-full h-full object-contain drop-shadow-md" data-alt="A glossy, translucent 3D rendered icon of a single large water droplet. Soft blue and cyan pastel colors with internal reflections. Refractive glass material finish, studio lighting, isolated on a bright background. Digital ethereal aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbflAo6VuV6ifTsAC8RW_X3ovRuQs2Auh-iah5oK8hPgyn_O0rF0pOzAcS1DtpmtJ6BujGnOkmtx_UAuXQXnqGC-Iv7rcsmZGNYqkCziK8dSmRKyfYAuuOZ-FGXIzV4fYI-hBF9gtBfCTtrqi9_srMr0fQJIchn9CFabawQ6En4ZHvi2qa_8f5QODTcY8dX3B27VcofPTNFrZxk4AOaFjn9Duqjf_Pv1I6s2AfYFaQ-MIORAJLlu-bBQ"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-lg text-title-lg text-on-surface">Hydration Break</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3">Goal: 2 of 8 glasses today.</p>
+<!-- Progress Bar -->
+<div class="h-3 w-full bg-surface-container rounded-full overflow-hidden ring-1 ring-white/30">
+<div class="h-full bg-gradient-to-r from-tertiary-fixed to-tertiary w-1/4 rounded-full shadow-[0_0_10px_rgba(60,98,124,0.5)]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3: Project Sync -->
+<div class="flex gap-4 md:gap-6 relative group">
+<div class="w-16 md:w-20 flex-shrink-0 flex flex-col items-center pt-2">
+<div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-surface/80 backdrop-blur-md shadow-sm border-2 border-white flex items-center justify-center z-10 text-primary-fixed-dim group-hover:scale-110 transition-transform duration-300">
+<span class="font-label-lg text-label-lg font-bold">14:00</span>
+</div>
+</div>
+<div class="flex-1 rounded-xl md:rounded-lg backdrop-blur-xl bg-primary-fixed/20 ring-1 ring-white/40 p-4 md:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] relative overflow-hidden">
+<div class="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-primary-fixed/10 to-transparent pointer-events-none"></div>
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-surface/50 shadow-inner flex items-center justify-center p-2 flex-shrink-0 ring-1 ring-white/50">
+<img class="w-full h-full object-contain drop-shadow-md" data-alt="A stylized 3D rendered icon of two overlapping floating speech bubbles or geometric abstract chat shapes. Soft lavender and deep purple tones. Smooth matte finish, soft ambient occlusion, studio lighting. Digital ethereal aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUuc7FnUldl7joEmlTUmHW501exrueSSb6fykYroGGie9L0yUGR290zfT6HMMYlsHEmEMT65hOALgzJjpMZTVqzo-Le5tNQqSFU7Fq1UT20ptBx7XrHS-iOPfI9jqPdfosdPvCdVZTtULyM1AuMICwHdvG0QU2-4U-BUYZWhVBgGzyrPIqdJpBLQDxanOwrE5H6CBymYEKqAnevndPE3Mara55KYSS9MK0EywZ6TWBCRTQZnztgRRKKA"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-lg text-title-lg text-on-surface">Design Sync</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3">Review new shared components.</p>
+<div class="flex -space-x-3">
+<img class="w-8 h-8 rounded-full ring-2 ring-white object-cover" data-alt="Small circular portrait avatar of a female designer, bright lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAin-Q-u55ITYPQdcw8UpWloQUdZG9NrLHF_JKAwOpitZklLGWacMRlWCZYkquzGkXKWhhs6NmI5SepOnGkD0HUxQqzoJa-64rGNjxg6KDgVUJkAUI206hTQWzHmuHfL7QnoGcvtGK13HMwUlQvJIqWHjnFRrJ6BiFaFDEZNuqabvASah9P5jdbOum_qt5m7XFCFT9amx5doB2ySUVMZ9l4fYu-91WoI49wHSLrChSSPaLX0ig3zwT2w"/>
+<img class="w-8 h-8 rounded-full ring-2 ring-white object-cover" data-alt="Small circular portrait avatar of a male developer, soft background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8jcElRRbrS23l0gt2HzC3v7Uws8nkGDxM6EUj-y8iiFMUtmhZP-nWpmr5iF2bJ33zGQvmqE2fbMmkk_ZnqCtSrL8Sgki8cUb39YpzvxH9ZEUWSBzLQ6wPKEb_lOh1Eqa9v8qVyP-y6pdAE16P_uX2fm-waWivxRgtRW-TWsGDfieGojgr7DkmNkYjiAYvsOkum5plNIm4RwOQJVmnDU20hx0hTJqAzbsC_5AOKh14rS6mt7kzn0qmSg"/>
+<div class="w-8 h-8 rounded-full ring-2 ring-white bg-surface-container flex items-center justify-center font-label-sm text-xs text-on-surface-variant">+2</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 4: Mom's Birthday -->
+<div class="flex gap-4 md:gap-6 relative group">
+<div class="w-16 md:w-20 flex-shrink-0 flex flex-col items-center pt-2">
+<div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-surface/80 backdrop-blur-md shadow-sm border-2 border-white flex items-center justify-center z-10 text-secondary group-hover:scale-110 transition-transform duration-300">
+<span class="font-label-lg text-label-lg font-bold">18:00</span>
+</div>
+</div>
+<div class="flex-1 rounded-xl md:rounded-lg backdrop-blur-xl bg-secondary-container/20 ring-1 ring-white/40 p-4 md:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] relative overflow-hidden">
+<div class="absolute -top-5 -right-5 w-24 h-24 bg-secondary/10 rounded-full blur-xl"></div>
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-surface/50 shadow-inner flex items-center justify-center p-2 flex-shrink-0 ring-1 ring-white/50">
+<img class="w-full h-full object-contain drop-shadow-md" data-alt="A delightful 3D rendered icon of a minimal birthday cake slice or a wrapped gift box. Soft peach, coral, and cream colors. Soft rounded edges, clay-like matte finish, warm studio lighting. Digital ethereal aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx5nliAsP-8Df5cBlwGlC1I954gdF3aIhcbi1DSZKnV2Yh21U0PkOdAqWC__iRuDwWdufTVBcRAr7yfE_g45M9DJu67gRSYsK4FC1QGCK0kMnuy0D3jB0F57bLKoDjrxXiZCRy4iM3aThfZHQ_QQlCzD1uSg8AHhUeju5b3IebZrW0YqZZW942r_b51QdPOjtRsQYVigd9pvtxia6nYmhABeBaBxC9WRAlgj3mHmbjse3U5z_tIxmTnA"/>
+</div>
+<div class="flex-1 w-full">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-lg text-title-lg text-on-surface">Mom's Birthday Dinner</h3>
+<span class="material-symbols-outlined text-secondary-fixed-dim">favorite</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Don't forget the flowers.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (FAB) -->
+<!-- Contextual FAB Suppression: Allowed here as it aligns with primary purpose -->
+<button class="fixed bottom-[100px] right-container-margin-mobile md:bottom-[40px] md:right-container-margin-desktop z-40 w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-tertiary shadow-[0_8px_24px_rgba(106,84,138,0.4)] ring-1 ring-white/30 flex items-center justify-center text-white active:scale-90 transition-transform duration-300 hover:shadow-[0_12px_32px_rgba(106,84,138,0.5)] group">
+<span class="material-symbols-outlined text-[32px] group-hover:rotate-90 transition-transform duration-300" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-surface-container/60 dark:bg-on-surface/20 rounded-t-lg backdrop-blur-2xl shadow-lg md:hidden">
+<!-- Home -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300 w-16">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<!-- Journal -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300 w-16">
+<span class="material-symbols-outlined mb-1">edit_note</span>
+<span class="font-label-sm text-label-sm">Journal</span>
+</button>
+<!-- Expenses -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300 w-16">
+<span class="material-symbols-outlined mb-1">payments</span>
+<span class="font-label-sm text-label-sm">Expenses</span>
+</button>
+<!-- Calendar (ACTIVE STATE) -->
+<button class="flex flex-col items-center justify-center bg-primary-container/80 text-on-primary-container rounded-xl px-4 py-1 hover:text-primary transition-all active:scale-90 duration-300 w-18">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Calendar</span>
+</button>
+<!-- Profile -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300 w-16">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</nav>
+<!-- Lightweight interaction script -->
+<script>
+        // Simple scroll effect for TopAppBar
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('topAppBar');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md', 'bg-surface/70');
+                header.classList.remove('bg-surface/40', 'shadow-sm');
+            } else {
+                header.classList.remove('shadow-md', 'bg-surface/70');
+                header.classList.add('bg-surface/40', 'shadow-sm');
+            }
+        });
+    </script>
+</body></html>

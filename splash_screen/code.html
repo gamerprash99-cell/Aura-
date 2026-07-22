@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aura</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#181c1e",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e5e9eb",
+                        "tertiary": "#3c627c",
+                        "on-primary-fixed-variant": "#513c71",
+                        "secondary-container": "#ffd1b3",
+                        "on-secondary-fixed": "#2d1604",
+                        "inverse-primary": "#d5bbf9",
+                        "primary": "#6a548a",
+                        "outline": "#7b757f",
+                        "on-primary": "#ffffff",
+                        "surface": "#f7fafc",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e0e3e5",
+                        "secondary": "#79573f",
+                        "surface-container": "#ebeef0",
+                        "on-primary-fixed": "#250f43",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#d6bcfa",
+                        "primary-fixed-dim": "#d5bbf9",
+                        "background": "#f7fafc",
+                        "on-secondary-fixed-variant": "#5f402a",
+                        "outline-variant": "#ccc4cf",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#6a548a",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container-low": "#f1f4f6",
+                        "surface-bright": "#f7fafc",
+                        "secondary-fixed-dim": "#eabea0",
+                        "primary-fixed": "#eddcff",
+                        "on-surface-variant": "#4a454e",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary-container": "#305770",
+                        "on-background": "#181c1e",
+                        "on-secondary-container": "#7a5840",
+                        "tertiary-fixed": "#c8e6ff",
+                        "on-tertiary-fixed-variant": "#234b63",
+                        "tertiary-container": "#a5cce9",
+                        "tertiary-fixed-dim": "#a5cbe9",
+                        "on-primary-container": "#5e497e",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d7dadc",
+                        "secondary-fixed": "#ffdcc5",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#001e2e",
+                        "inverse-on-surface": "#eef1f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "xl": "64px",
+                        "base": "8px",
+                        "md": "24px",
+                        "xs": "4px",
+                        "container-margin-mobile": "20px",
+                        "sm": "12px",
+                        "lg": "40px",
+                        "container-margin-desktop": "80px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "title-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "label-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "display-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "title-lg": ["22px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "display-md": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f7fafc 0%, #eddcff 50%, #c8e6ff 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .glass-overlay {
+            backdrop-filter: blur(20px);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="h-screen w-screen flex flex-col items-center justify-center relative font-sans text-on-surface">
+<!-- Ambient Mesh Gradient Overlay (Base Depth) -->
+<div class="absolute inset-0 w-full h-full opacity-60 mix-blend-multiply pointer-events-none" style="background: radial-gradient(circle at 20% 30%, rgba(214, 188, 250, 0.4) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 70%, rgba(165, 204, 233, 0.4) 0%, transparent 50%);">
+</div>
+<!-- Glassmorphic Canvas Layer -->
+<div class="absolute inset-0 w-full h-full glass-overlay pointer-events-none"></div>
+<!-- Main Content Container -->
+<main class="relative z-10 flex flex-col items-center justify-center text-center p-md max-w-sm w-full mx-auto">
+<!-- Animated Logo Container -->
+<div class="w-48 h-48 md:w-64 md:h-64 mb-xl relative fade-in-up" style="animation-delay: 0.2s;">
+<!-- STITCH_SVG_START:ANIMATION_3 class="absolute inset-0 w-full h-full drop-shadow-2xl" --><div class="absolute inset-0 w-full h-full drop-shadow-2xl" id="animated-svg-ANIMATION_3" style="display:block;"><svg viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="aura-grad" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#d6bcfa;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#fbd38d;stop-opacity:1"></stop>
+</lineargradient>
+<filter height="140%" id="blur" width="140%" x="-20%" y="-20%">
+<fegaussianblur in="SourceGraphic" stddeviation="5"></fegaussianblur>
+</filter>
+</defs>
+<!-- Background Glow -->
+<circle cx="100" cy="100" fill="url(#aura-grad)" filter="url(#blur)" opacity="0.6" r="80">
+<animate attributename="r" dur="4s" repeatcount="indefinite" values="75;85;75"></animate>
+</circle>
+<!-- Main Logo Shape -->
+<path d="M100 40C66.8629 40 40 66.8629 40 100C40 133.137 66.8629 160 100 160C133.137 160 160 133.137 160 100C160 66.8629 133.137 40 100 40ZM100 145C75.1472 145 55 124.853 55 100C55 75.1472 75.1472 55 100 55C124.853 55 145 75.1472 145 100C145 124.853 124.853 145 100 145Z" fill="white">
+<animatetransform attributename="transform" dur="10s" from="0 100 100" repeatcount="indefinite" to="360 100 100" type="rotate"></animatetransform>
+</path>
+<circle cx="100" cy="100" fill="white" opacity="0.9" r="30">
+<animate attributename="opacity" dur="3s" repeatcount="indefinite" values="0.6;1;0.6"></animate>
+</circle>
+</svg></div><!-- STITCH_SVG_END:ANIMATION_3 -->
+</div>
+<!-- Typography -->
+<h1 class="font-display-md text-display-md md:font-display-lg md:text-display-lg bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary mb-sm fade-in-up" style="animation-delay: 0.6s;">
+            Aura
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant fade-in-up" style="animation-delay: 0.8s;">
+            Organize your life beautifully.
+        </p>
+<!-- Loading Indicator (Subtle) -->
+<div class="mt-xl fade-in-up" style="animation-delay: 1.2s;">
+<div class="w-12 h-1 bg-surface-variant rounded-full overflow-hidden relative">
+<div class="absolute top-0 left-0 h-full bg-primary-container rounded-full animate-[pulse_1.5s_ease-in-out_infinite] w-full origin-left"></div>
+</div>
+</div>
+</main>
+<script>
+        // Optional: Simple redirect simulation after splash screen
+        // setTimeout(() => {
+        //     window.location.href = '/home'; // Redirect logic would go here
+        // }, 4000);
+    </script>
+</body></html>

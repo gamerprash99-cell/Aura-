@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aura - Expenses</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#3c627c",
+                        "surface-container": "#ebeef0",
+                        "secondary": "#79573f",
+                        "primary": "#6a548a",
+                        "secondary-container": "#ffd1b3",
+                        "tertiary-container": "#a5cce9",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f7fafc",
+                        "secondary-fixed": "#ffdcc5",
+                        "on-surface": "#181c1e",
+                        "outline-variant": "#ccc4cf",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#d6bcfa",
+                        "surface-container-high": "#e5e9eb",
+                        "inverse-on-surface": "#eef1f3",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary-fixed": "#2d1604",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#c8e6ff",
+                        "surface-tint": "#6a548a",
+                        "primary-fixed": "#eddcff",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f7fafc",
+                        "on-tertiary-fixed-variant": "#234b63",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#513c71",
+                        "on-secondary-container": "#7a5840",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#250f43",
+                        "secondary-fixed-dim": "#eabea0",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#001e2e",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-fixed-dim": "#a5cbe9",
+                        "surface": "#f7fafc",
+                        "on-tertiary-container": "#305770",
+                        "on-surface-variant": "#4a454e",
+                        "primary-fixed-dim": "#d5bbf9",
+                        "outline": "#7b757f",
+                        "surface-container-low": "#f1f4f6",
+                        "on-secondary-fixed-variant": "#5f402a",
+                        "on-primary-container": "#5e497e",
+                        "inverse-surface": "#2d3133",
+                        "surface-dim": "#d7dadc",
+                        "on-background": "#181c1e",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#d5bbf9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "container-margin-desktop": "80px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "md": "24px",
+                        "lg": "40px",
+                        "container-margin-mobile": "20px",
+                        "xl": "64px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-md": ["Plus Jakarta Sans"],
+                        "title-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "label-lg": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "display-md": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "title-lg": ["22px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.8);
+            border-left: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(106, 84, 138, 0.05);
+        }
+        .mesh-bg {
+            background-color: #f7fafc;
+            background-image: 
+                radial-gradient(at 40% 20%, hsla(280,100%,74%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355,100%,93%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340,100%,76%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22,100%,77%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242,100%,70%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343,100%,76%,0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="mesh-bg text-on-surface antialiased min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-surface/40 dark:bg-on-surface/10 text-primary dark:text-primary-fixed-dim font-headline-lg-mobile text-headline-lg-mobile fixed top-0 w-full backdrop-blur-xl border-b border-white/20 shadow-sm flex justify-between items-center px-gutter h-16 w-full z-50">
+<div class="flex items-center gap-sm cursor-pointer hover:bg-white/10 transition-colors active:scale-95 duration-200 rounded-full p-1">
+<img class="w-10 h-10 rounded-full object-cover border-2 border-white" data-alt="A small circular avatar showing a highly detailed, professional yet trendy portrait of a Gen-Z user with soft cinematic lighting, perfectly fitting a premium light-mode UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSO_bfB50McnhyAaa44VDiO4R5onusnxvIz3040Gf6k4nbSAO_ls8OAf1e52xNv_2OycWnHSk2UPz1D_W01orJJnmVbQPSaGHQ5pa5tk42WA31ElOEdftviCQB0poaCfNI6BpbffZbP5KzLmP2zr4uo_QVM3N7EK0Ph0cNFTw2w0MOlAQfJ9VdaCmF9dSyL87kibempMywToKl-lCsiVS5Qz_olzxb60PHmFI8CMbLC94Kcs88EDUZUw"/>
+</div>
+<div class="font-display-md text-display-md bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary text-center flex-1">
+            Aura
+        </div>
+<div class="flex items-center justify-center w-10 h-10 rounded-full cursor-pointer hover:bg-white/10 transition-colors active:scale-95 duration-200 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+</div>
+</header>
+<main class="pt-24 px-container-margin-mobile md:px-container-margin-desktop max-w-[1440px] mx-auto flex flex-col gap-lg">
+<!-- Wallet Balance Card -->
+<section>
+<div class="rounded-xl p-md text-white shadow-lg relative overflow-hidden" style="background: linear-gradient(135deg, #a5cce9 0%, #d6bcfa 100%);">
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full blur-3xl -mr-16 -mt-16"></div>
+<div class="relative z-10 flex flex-col gap-md">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-lg text-label-lg text-white/80 mb-1">Total Balance</p>
+<h2 class="font-display-md text-display-md">$4,250.00</h2>
+</div>
+<div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30">
+<span class="material-symbols-outlined text-white">account_balance_wallet</span>
+</div>
+</div>
+<div class="flex gap-md mt-sm">
+<div class="flex-1 bg-white/10 rounded-lg p-sm backdrop-blur-sm border border-white/20">
+<div class="flex items-center gap-xs text-white/80 font-label-sm text-label-sm mb-1">
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span> Income
+                            </div>
+<p class="font-title-lg text-title-lg">$5,800.00</p>
+</div>
+<div class="flex-1 bg-white/10 rounded-lg p-sm backdrop-blur-sm border border-white/20">
+<div class="flex items-center gap-xs text-white/80 font-label-sm text-label-sm mb-1">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span> Expenses
+                            </div>
+<p class="font-title-lg text-title-lg">$1,550.00</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Spending Chart Placeholder -->
+<section>
+<div class="flex justify-between items-end mb-sm">
+<h3 class="font-title-lg text-title-lg text-on-surface">Spending Overview</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full cursor-pointer">This Month</span>
+</div>
+<div class="glass-card rounded-xl p-md h-48 flex items-end justify-between gap-2 relative">
+<!-- Decorative Bar Chart -->
+<div class="w-full bg-primary-container/30 rounded-t-md h-[40%] hover:bg-primary-container transition-colors"></div>
+<div class="w-full bg-tertiary-container/30 rounded-t-md h-[60%] hover:bg-tertiary-container transition-colors"></div>
+<div class="w-full bg-primary-container/30 rounded-t-md h-[30%] hover:bg-primary-container transition-colors"></div>
+<div class="w-full bg-tertiary-container/30 rounded-t-md h-[80%] hover:bg-tertiary-container transition-colors relative">
+<div class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-surface text-on-surface font-label-sm text-label-sm px-2 py-1 rounded shadow-sm border border-outline-variant/30">$450</div>
+</div>
+<div class="w-full bg-primary-container/30 rounded-t-md h-[50%] hover:bg-primary-container transition-colors"></div>
+<div class="w-full bg-tertiary-container/30 rounded-t-md h-[20%] hover:bg-tertiary-container transition-colors"></div>
+</div>
+</section>
+<!-- Categories Grid -->
+<section>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-sm">Categories</h3>
+<div class="grid grid-cols-4 md:grid-cols-7 gap-sm">
+<div class="flex flex-col items-center gap-xs cursor-pointer group">
+<div class="w-14 h-14 rounded-full glass-card flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">🍔</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Food</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer group">
+<div class="w-14 h-14 rounded-full glass-card flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">🚗</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Travel</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer group">
+<div class="w-14 h-14 rounded-full glass-card flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">🛍</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Shopping</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer group">
+<div class="w-14 h-14 rounded-full glass-card flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">🏠</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Home</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer group">
+<div class="w-14 h-14 rounded-full glass-card flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">💊</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Health</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer group">
+<div class="w-14 h-14 rounded-full glass-card flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">🎓</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Education</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer group">
+<div class="w-14 h-14 rounded-full glass-card flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">🎮</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Entertainment</span>
+</div>
+</div>
+</section>
+<!-- Upcoming Bills -->
+<section>
+<div class="flex justify-between items-end mb-sm">
+<h3 class="font-title-lg text-title-lg text-on-surface">Upcoming Bills</h3>
+<span class="font-label-sm text-label-sm text-primary cursor-pointer hover:underline">View All</span>
+</div>
+<div class="flex gap-md overflow-x-auto hide-scrollbar pb-4 snap-x">
+<div class="glass-card rounded-xl p-md min-w-[240px] snap-center flex-shrink-0">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">wifi</span>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container px-2 py-1 rounded-full text-on-surface-variant">In 2 days</span>
+</div>
+<h4 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-1">Internet</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">$85.00</p>
+<button class="w-full bg-gradient-to-r from-primary to-tertiary text-white font-label-lg text-label-lg py-2 rounded-full hover:opacity-90 transition-opacity active:scale-95">Pay Now</button>
+</div>
+<div class="glass-card rounded-xl p-md min-w-[240px] snap-center flex-shrink-0">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">subscriptions</span>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container px-2 py-1 rounded-full text-on-surface-variant">In 5 days</span>
+</div>
+<h4 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-1">Netflix</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">$15.99</p>
+<button class="w-full border border-outline-variant text-on-surface font-label-lg text-label-lg py-2 rounded-full hover:bg-surface-container transition-colors active:scale-95">Scheduled</button>
+</div>
+</div>
+</section>
+<!-- Savings Goal -->
+<section>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-sm">Savings Goal</h3>
+<div class="glass-card rounded-xl p-md">
+<div class="flex justify-between items-center mb-2">
+<div class="flex items-center gap-2">
+<span class="text-2xl">💻</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">New Laptop</span>
+</div>
+<span class="font-label-lg text-label-lg text-primary font-bold">65%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-3 mb-2 overflow-hidden">
+<div class="bg-gradient-to-r from-tertiary-container to-primary-container h-3 rounded-full" style="width: 65%"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>$1,300 saved</span>
+<span>Goal: $2,000</span>
+</div>
+</div>
+</section>
+<!-- Recent Transactions -->
+<section>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-sm">Recent Spends</h3>
+<div class="flex flex-col gap-sm">
+<div class="glass-card rounded-lg p-sm flex items-center justify-between hover:bg-white/50 transition-colors cursor-pointer">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-full bg-tertiary-container/50 flex items-center justify-center text-xl">☕</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-on-surface text-base">Starbucks</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Food &amp; Drink • Today, 9:41 AM</p>
+</div>
+</div>
+<span class="font-title-lg text-title-lg text-on-surface text-base">-$6.50</span>
+</div>
+<div class="glass-card rounded-lg p-sm flex items-center justify-between hover:bg-white/50 transition-colors cursor-pointer">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-full bg-primary-container/50 flex items-center justify-center text-xl">🛒</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-on-surface text-base">Whole Foods</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Groceries • Yesterday</p>
+</div>
+</div>
+<span class="font-title-lg text-title-lg text-on-surface text-base">-$84.20</span>
+</div>
+<div class="glass-card rounded-lg p-sm flex items-center justify-between hover:bg-white/50 transition-colors cursor-pointer">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-full bg-secondary-container/50 flex items-center justify-center text-xl">🚕</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-on-surface text-base">Uber</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Transport • Oct 12</p>
+</div>
+</div>
+<span class="font-title-lg text-title-lg text-on-surface text-base">-$24.00</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden bg-surface-container/60 dark:bg-on-surface/20 text-primary dark:text-primary-fixed-dim font-label-sm text-label-sm fixed bottom-0 w-full rounded-t-lg backdrop-blur-2xl border-t border-white/20 shadow-lg fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300 cursor-pointer">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">home</span>
+<span>Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300 cursor-pointer">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">edit_note</span>
+<span>Journal</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container/80 text-on-primary-container rounded-xl px-4 py-1 hover:text-primary transition-all active:scale-90 duration-300 cursor-pointer">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-bold">Expenses</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300 cursor-pointer">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">calendar_today</span>
+<span>Calendar</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300 cursor-pointer">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">person</span>
+<span>Profile</span>
+</div>
+</nav>
+<!-- Desktop Sidebar (Hidden on mobile) -->
+<aside class="hidden md:flex flex-col w-[280px] h-screen fixed left-0 top-0 pt-24 px-gutter border-r border-outline-variant/20 bg-surface/30 backdrop-blur-xl z-40">
+<nav class="flex flex-col gap-2">
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-lg text-label-lg">Home</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="font-label-lg text-label-lg">Journal</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container/80 text-on-primary-container font-bold cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-label-lg text-label-lg">Expenses</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-lg text-label-lg">Calendar</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-lg text-label-lg">Profile</span>
+</div>
+</nav>
+</aside>
+</body></html>

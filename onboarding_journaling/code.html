@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aura - Mindful Journaling</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#181c1e",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#e5e9eb",
+                    "tertiary": "#3c627c",
+                    "on-primary-fixed-variant": "#513c71",
+                    "secondary-container": "#ffd1b3",
+                    "on-secondary-fixed": "#2d1604",
+                    "inverse-primary": "#d5bbf9",
+                    "primary": "#6a548a",
+                    "outline": "#7b757f",
+                    "on-primary": "#ffffff",
+                    "surface": "#f7fafc",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e0e3e5",
+                    "secondary": "#79573f",
+                    "surface-container": "#ebeef0",
+                    "on-primary-fixed": "#250f43",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#d6bcfa",
+                    "primary-fixed-dim": "#d5bbf9",
+                    "background": "#f7fafc",
+                    "on-secondary-fixed-variant": "#5f402a",
+                    "outline-variant": "#ccc4cf",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#6a548a",
+                    "surface-container-highest": "#e0e3e5",
+                    "surface-container-low": "#f1f4f6",
+                    "surface-bright": "#f7fafc",
+                    "secondary-fixed-dim": "#eabea0",
+                    "primary-fixed": "#eddcff",
+                    "on-surface-variant": "#4a454e",
+                    "inverse-surface": "#2d3133",
+                    "on-tertiary-container": "#305770",
+                    "on-background": "#181c1e",
+                    "on-secondary-container": "#7a5840",
+                    "tertiary-fixed": "#c8e6ff",
+                    "on-tertiary-fixed-variant": "#234b63",
+                    "tertiary-container": "#a5cce9",
+                    "tertiary-fixed-dim": "#a5cbe9",
+                    "on-primary-container": "#5e497e",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#d7dadc",
+                    "secondary-fixed": "#ffdcc5",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#001e2e",
+                    "inverse-on-surface": "#eef1f3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "xl": "64px",
+                    "base": "8px",
+                    "md": "24px",
+                    "xs": "4px",
+                    "container-margin-mobile": "20px",
+                    "sm": "12px",
+                    "lg": "40px",
+                    "container-margin-desktop": "80px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "title-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "display-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "label-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "label-sm": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "display-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "headline-lg": [
+                            "Plus Jakarta Sans"
+                    ]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": [
+                            "28px",
+                            {
+                                    "lineHeight": "36px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "title-lg": [
+                            "22px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-lg": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.1px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "display-md": [
+                            "36px",
+                            {
+                                    "lineHeight": "44px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: theme('colors.background');
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            border-left: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .gradient-bg {
+            background: radial-gradient(circle at top right, #ffdcc5 0%, transparent 40%),
+                        radial-gradient(circle at bottom left, #c8e6ff 0%, transparent 40%);
+            background-color: theme('colors.background');
+        }
+    </style>
+</head>
+<body class="h-screen w-screen overflow-hidden text-on-surface gradient-bg flex flex-col items-center justify-center">
+<!-- Main Container -->
+<main class="w-full h-full max-w-md mx-auto relative flex flex-col justify-between">
+<!-- Image Section -->
+<div class="relative w-full h-[60%] flex-shrink-0 pt-gutter px-gutter">
+<!-- Glass Decorative Blob behind image -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-secondary-container/50 rounded-full blur-3xl -z-10"></div>
+<img alt="" class="w-full h-full object-cover rounded-xl shadow-sm border border-white/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwDFpXsJEscOTaqWEPdqTZht0G_ntv2xjzpd_7exmfqxH5YgbQIl7atS-SgUiaSE3HDyE6SaGYvUf7cR34FFzjfZVKvZpfgA9DENy4PgntcEVfQ2ox6fAWHPy9dGMzPN_manA2ullozzyXL58P1-zwCDSZa0plkkZ_SO8_m96RucILg1nbpWQsKhFNlYdmfw1YQs0Rs6WmXjFI1JHHfKXB6Cs4xIjwRR8PVNlf1IIRxm3Ak43eoL40lw"/>
+<!-- Floating Sparkles (CSS Animated) -->
+<div class="absolute top-1/4 right-1/4 w-4 h-4 bg-tertiary-fixed rounded-full blur-sm opacity-70 animate-pulse"></div>
+<div class="absolute bottom-1/3 left-1/4 w-3 h-3 bg-secondary-fixed rounded-full blur-[2px] opacity-60 animate-bounce" style="animation-duration: 3s;"></div>
+</div>
+<!-- Content Card -->
+<div class="w-full flex-grow px-gutter pb-xl pt-lg relative z-10 flex flex-col">
+<div class="glass-card rounded-xl p-md flex flex-col gap-sm flex-grow shadow-lg">
+<!-- Progress Indicators -->
+<div class="flex gap-2 justify-center mb-md">
+<div class="h-1 w-6 rounded-full bg-outline-variant/30"></div>
+<div class="h-1 w-6 rounded-full bg-primary"></div>
+<div class="h-1 w-6 rounded-full bg-outline-variant/30"></div>
+</div>
+<!-- Text Content -->
+<div class="text-center flex flex-col gap-xs flex-grow">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-primary-fixed">Capture Memories</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Express yourself in a beautiful, private digital space.</p>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-sm mt-auto w-full">
+<button class="w-full py-4 rounded-full bg-gradient-to-r from-primary to-tertiary text-on-primary font-label-lg text-label-lg shadow-sm active:scale-95 transition-transform duration-200 border border-white/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]">
+                        Continue
+                    </button>
+<button class="w-full py-4 rounded-full glass-card text-on-surface-variant font-label-lg text-label-lg active:scale-95 transition-transform duration-200">
+                        Skip
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

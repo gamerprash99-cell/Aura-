@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aura - Alarm &amp; Sleep</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#6a548a",
+                    "primary-container": "#d6bcfa",
+                    "on-primary-fixed": "#250f43",
+                    "surface-dim": "#d7dadc",
+                    "on-background": "#181c1e",
+                    "outline-variant": "#ccc4cf",
+                    "on-secondary-container": "#7a5840",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "on-tertiary-fixed-variant": "#234b63",
+                    "surface-variant": "#e0e3e5",
+                    "tertiary-fixed-dim": "#a5cbe9",
+                    "secondary-fixed": "#ffdcc5",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#e5e9eb",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#e0e3e5",
+                    "outline": "#7b757f",
+                    "secondary": "#79573f",
+                    "tertiary": "#3c627c",
+                    "inverse-primary": "#d5bbf9",
+                    "primary": "#6a548a",
+                    "inverse-on-surface": "#eef1f3",
+                    "surface-container": "#ebeef0",
+                    "tertiary-container": "#a5cce9",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#ffd1b3",
+                    "on-secondary-fixed": "#2d1604",
+                    "on-surface": "#181c1e",
+                    "primary-fixed-dim": "#d5bbf9",
+                    "surface": "#f7fafc",
+                    "background": "#f7fafc",
+                    "on-surface-variant": "#4a454e",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#c8e6ff",
+                    "surface-bright": "#f7fafc",
+                    "on-tertiary-fixed": "#001e2e",
+                    "on-secondary-fixed-variant": "#5f402a",
+                    "on-primary-container": "#5e497e",
+                    "secondary-fixed-dim": "#eabea0",
+                    "surface-container-low": "#f1f4f6",
+                    "on-primary-fixed-variant": "#513c71",
+                    "on-tertiary-container": "#305770",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#eddcff",
+                    "error": "#ba1a1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-margin-mobile": "20px",
+                    "xl": "64px",
+                    "sm": "12px",
+                    "md": "24px",
+                    "gutter": "24px",
+                    "container-margin-desktop": "80px",
+                    "xs": "4px",
+                    "base": "8px",
+                    "lg": "40px"
+            },
+            "fontFamily": {
+                    "display-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "display-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "label-sm": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "label-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "headline-lg-mobile": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "title-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "headline-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-lg": [
+                            "Plus Jakarta Sans"
+                    ]
+            },
+            "fontSize": {
+                    "display-md": [
+                            "36px",
+                            {
+                                    "lineHeight": "44px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "label-lg": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.1px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "28px",
+                            {
+                                    "lineHeight": "36px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "title-lg": [
+                            "22px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Atmospheric Background Animation */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+        .bg-blob {
+            animation: pulse-slow 8s infinite ease-in-out;
+        }
+        .float-element {
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        /* Custom Toggle Switch styling base */
+        .glass-toggle-input:checked + .glass-toggle-bg {
+            background: linear-gradient(to right, #d6bcfa, #a5cce9); /* from-primary-container to-tertiary-container */
+        }
+        .glass-toggle-input:checked + .glass-toggle-bg .glass-toggle-knob {
+            transform: translateX(100%);
+        }
+        
+        /* Clock Hands Specifics */
+        .clock-hand-hour { transform: rotate(180deg); transform-origin: bottom center; }
+        .clock-hand-minute { transform: rotate(45deg); transform-origin: bottom center; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md text-on-surface bg-surface min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- LEVEL 0: Multi-color Mesh Gradient Background (Digital Ethereal) -->
+<div class="fixed inset-0 -z-20 overflow-hidden pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-primary-container opacity-40 mix-blend-multiply blur-[80px] bg-blob"></div>
+<div class="absolute top-[20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-tertiary-container opacity-30 mix-blend-multiply blur-[100px] bg-blob" style="animation-delay: 2s;"></div>
+<div class="absolute bottom-[-10%] left-[10%] w-[70vw] h-[70vw] rounded-full bg-secondary-container opacity-20 mix-blend-multiply blur-[90px] bg-blob" style="animation-delay: 4s;"></div>
+</div>
+<!-- LEVEL 1: Main Canvas with overall blur and tint -->
+<div class="min-h-screen w-full bg-white/10 backdrop-blur-[20px] flex flex-col relative z-0">
+<!-- SHARED COMPONENT: TopAppBar -->
+<header class="fixed top-0 w-full backdrop-blur-xl bg-surface/40 dark:bg-on-surface/10 border-b border-white/20 shadow-sm flex justify-between items-center px-gutter h-16 z-50 transition-all duration-300">
+<!-- Leading Avatar -->
+<div class="h-10 w-10 rounded-full overflow-hidden border border-white/30 shadow-sm flex-shrink-0 active:scale-95 duration-200 cursor-pointer">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A close-up, highly detailed portrait of a young professional smiling gently in a bright, modern studio. The lighting is soft and diffused, creating a serene, high-key 'light mode' aesthetic. The background is slightly out of focus with subtle pastel lavender tones, perfectly matching an ethereal, premium digital interface vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA28mnoqtw9hxxKmt9Ug6SK5BuhTHFASmwU1BCgedTuB7sIe-JbzVRrbacokEl06gvUSqy3mgm3-hybe4Txn98QHLEpv4t0SSr2LZcQIwg-5mZHwi3iRjLDoSr9YUxTvoERGglO6rdNcLBpdxQteXqUZG-DzAah-RqYRKGaTbSglC8v_iiheQTzFZTzGyGTuet6Kx4ceaS-iwyHrcXbJCvpSnc5fI0QkKY3q6xS4Nnnfw9epD4eDm34Pg"/>
+</div>
+<!-- Headline / Brand -->
+<h1 class="font-display-md text-display-md bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary tracking-tight">
+                Aura
+            </h1>
+<!-- Trailing Icon -->
+<button aria-label="Settings" class="h-10 w-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors active:scale-95 duration-200 text-primary dark:text-primary-fixed-dim">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+</button>
+</header>
+<!-- MAIN CONTENT AREA -->
+<!-- Floating Content Philosophy: Large margins, loose vertical spacing -->
+<main class="flex-grow pt-[104px] pb-[120px] px-container-margin-mobile md:px-container-margin-desktop flex flex-col items-center max-w-[1440px] mx-auto w-full gap-xl">
+<!-- SECTION: Analog & Digital Clock -->
+<section class="flex flex-col items-center justify-center gap-md w-full">
+<!-- Large Glassmorphic Analog Clock -->
+<!-- Level 2 Glass Card styling for the clock body -->
+<div class="relative w-56 h-56 md:w-72 md:h-72 rounded-full bg-white/40 backdrop-blur-[30px] border-t border-l border-white/40 shadow-[0_8px_32px_0_rgba(106,84,138,0.1)] flex items-center justify-center float-element">
+<!-- Inner dial shadow/depth -->
+<div class="absolute inset-2 rounded-full border border-white/20 shadow-inner"></div>
+<!-- Tick Marks (Simplified for minimalist aesthetic) -->
+<div class="absolute inset-4 rounded-full border border-dashed border-primary/20"></div>
+<div class="absolute top-2 w-1 h-3 bg-primary/40 rounded-full"></div>
+<div class="absolute bottom-2 w-1 h-3 bg-primary/40 rounded-full"></div>
+<div class="absolute left-2 w-3 h-1 bg-primary/40 rounded-full"></div>
+<div class="absolute right-2 w-3 h-1 bg-primary/40 rounded-full"></div>
+<!-- Clock Center Pivot -->
+<div class="absolute w-4 h-4 bg-white rounded-full shadow-md z-20 border border-primary/10"></div>
+<!-- Hour Hand (Soft Lavender) -->
+<div class="absolute bottom-1/2 w-2 h-16 md:h-20 bg-primary/80 rounded-full clock-hand-hour z-10 shadow-sm" style="transform-origin: bottom center;"></div>
+<!-- Minute Hand (Sky Blue / Tertiary) -->
+<div class="absolute bottom-1/2 w-1 h-24 md:h-28 bg-tertiary-container rounded-full clock-hand-minute z-10 shadow-sm" style="transform-origin: bottom center;"></div>
+</div>
+<!-- Digital Time Display below -->
+<div class="flex flex-col items-center">
+<h2 class="font-display-lg text-display-lg text-on-surface tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary">
+                        07:30 <span class="font-title-lg text-title-lg text-primary/70 uppercase align-baseline">AM</span>
+</h2>
+<p class="font-label-lg text-label-lg text-on-surface-variant mt-1">Wake up in 8 hours</p>
+</div>
+</section>
+<!-- SECTION: Alarms List -->
+<section class="w-full max-w-md flex flex-col gap-sm relative z-10">
+<!-- Specific Alarm Card 1: Smart Wake-up (ON) -->
+<!-- Level 2 Glass Card -->
+<div class="group relative rounded-[2rem] bg-white/60 backdrop-blur-[20px] border-t border-l border-white/50 p-6 flex flex-col gap-4 shadow-[0_8px_24px_-4px_rgba(106,84,138,0.08)] transition-all hover:bg-white/70 overflow-hidden">
+<!-- Subtle glowing orb inside the active card to emphasize "ON" state -->
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-primary-container/40 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex justify-between items-start z-10">
+<div class="flex flex-col">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">06:00 <span class="text-title-lg text-on-surface-variant">AM</span></span>
+<div class="flex items-center gap-2 mt-1">
+<!-- Chip for Status -->
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-tertiary-container text-on-tertiary-container">
+                                    Smart Wake-up
+                                </span>
+</div>
+</div>
+<!-- Custom Glass Toggle -->
+<label class="relative inline-flex items-center cursor-pointer mt-1">
+<input checked="" class="sr-only glass-toggle-input" type="checkbox"/>
+<!-- bg-surface-variant is default, but CSS handles checked state -->
+<div class="glass-toggle-bg w-14 h-8 bg-surface-variant/50 rounded-full border border-white/40 shadow-inner transition-colors duration-300 relative">
+<div class="glass-toggle-knob absolute top-1 left-1 bg-white w-6 h-6 rounded-full shadow-sm transition-transform duration-300 flex items-center justify-center">
+<!-- Optional internal detail in knob -->
+<div class="w-1.5 h-1.5 rounded-full bg-primary/20"></div>
+</div>
+</div>
+</label>
+</div>
+<!-- Sound Label Row -->
+<div class="flex items-center gap-2 text-on-surface-variant font-label-lg text-label-lg pt-2 border-t border-surface-variant/20 z-10">
+<span class="material-symbols-outlined text-[18px]">music_note</span>
+<span>Sound: <strong class="font-semibold text-primary">Gentle Birds</strong></span>
+</div>
+</div>
+<!-- Alarm Card 2 (OFF) -->
+<div class="group relative rounded-[2rem] bg-white/40 backdrop-blur-[20px] border-t border-l border-white/30 p-6 flex flex-col gap-4 shadow-[0_4px_16px_-4px_rgba(106,84,138,0.05)] transition-all hover:bg-white/50 opacity-80 hover:opacity-100">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface-variant">08:15 <span class="text-title-lg text-outline">AM</span></span>
+<span class="font-label-lg text-label-lg text-outline mt-1">Weekend Catch-up</span>
+</div>
+<!-- Custom Glass Toggle -->
+<label class="relative inline-flex items-center cursor-pointer mt-1">
+<input class="sr-only glass-toggle-input" type="checkbox"/>
+<div class="glass-toggle-bg w-14 h-8 bg-surface-variant/50 rounded-full border border-white/40 shadow-inner transition-colors duration-300 relative">
+<div class="glass-toggle-knob absolute top-1 left-1 bg-white/80 w-6 h-6 rounded-full shadow-sm transition-transform duration-300"></div>
+</div>
+</label>
+</div>
+</div>
+</section>
+<!-- SECTION: Sleep Tracker Summary Card -->
+<section class="w-full max-w-md mt-auto relative z-10">
+<!-- Level 2 Glass Card -->
+<div class="rounded-[2rem] bg-gradient-to-br from-white/60 to-white/30 backdrop-blur-[24px] border-t border-l border-white/50 p-6 shadow-lg flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/50 flex items-center justify-center text-primary border border-white/30">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bedtime</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Sleep Tracker</h3>
+</div>
+<button class="text-primary font-label-lg text-label-lg hover:underline decoration-primary/50 underline-offset-4">Details</button>
+</div>
+<div class="flex items-end justify-between mt-2">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-wider">Last Night</p>
+<div class="font-display-md text-display-md text-on-surface">
+                                7h 20m
+                            </div>
+</div>
+<!-- Goal Status Chip -->
+<div class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-secondary-container/50 text-on-secondary-container font-label-sm text-label-sm border border-secondary-container">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Goal Met</span>
+</div>
+</div>
+<!-- High-end Progress Bar (Thick glowing pill) -->
+<div class="w-full h-3 bg-black/5 rounded-full overflow-hidden border-t border-white/20 mt-2 shadow-inner">
+<div class="h-full bg-gradient-to-r from-primary to-secondary w-[85%] rounded-full relative">
+<!-- Inner glow effect -->
+<div class="absolute inset-0 bg-white/20 rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- SHARED COMPONENT: BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full rounded-t-[2rem] backdrop-blur-2xl border-t border-white/20 shadow-lg bg-surface-container/60 dark:bg-on-surface/20 z-50 flex justify-around items-center px-4 pb-6 pt-3 transition-all">
+<!-- ACTIVE TAB: Home (Semantically matches Dashboard/Main Alarm screen) -->
+<!-- Using exact style_active_navigation JSON string for structure/style -->
+<a class="flex flex-col items-center justify-center bg-primary-container/80 text-on-primary-container rounded-xl px-4 py-1 active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Home</span>
+</a>
+<!-- INACTIVE TABS -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300 px-4 py-1" href="#">
+<span class="material-symbols-outlined mb-1">edit_note</span>
+<span class="font-label-sm text-label-sm">Journal</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300 px-4 py-1" href="#">
+<span class="material-symbols-outlined mb-1">payments</span>
+<span class="font-label-sm text-label-sm">Expenses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300 px-4 py-1" href="#">
+<span class="material-symbols-outlined mb-1">calendar_today</span>
+<span class="font-label-sm text-label-sm">Calendar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300 px-4 py-1" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+</div>
+</body></html>
